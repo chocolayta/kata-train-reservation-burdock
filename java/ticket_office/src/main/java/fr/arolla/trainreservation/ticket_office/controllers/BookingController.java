@@ -19,12 +19,12 @@ public class BookingController {
 
   private final RestTemplate restTemplate;
 
-  BookingController() {
+  public BookingController() {
     restTemplate = new RestTemplate();
   }
 
   @RequestMapping("/reserve")
-  BookingResponse reserve(@RequestBody BookingRequest bookingRequest) {
+  public BookingResponse reserve(@RequestBody BookingRequest bookingRequest) {
     var seatCount = bookingRequest.count();
     var trainId = bookingRequest.train_id();
 
