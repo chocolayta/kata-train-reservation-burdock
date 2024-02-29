@@ -3,6 +3,7 @@ package fr.arolla.trainreservation.ticket_office.controllers;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import fr.arolla.trainreservation.ticket_office.HttpClient;
 import fr.arolla.trainreservation.ticket_office.Seat;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,10 +18,10 @@ import java.util.Map;
 @RestController
 public class BookingController {
 
-  private final RestTemplate restTemplate;
+  private final HttpClient restTemplate;
 
-  public BookingController() {
-    restTemplate = new RestTemplate();
+  public BookingController(HttpClient httpClient) {
+    restTemplate = httpClient;
   }
 
   @RequestMapping("/reserve")
